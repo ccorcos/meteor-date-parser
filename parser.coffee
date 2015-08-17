@@ -211,7 +211,7 @@ parseDate = pipe(
   parseWith(MDY, autoTime)
   parseWith(MDT, autoYear)
   parseWith(MD, pipe(autoYear, autoTime))
-  # parseWith(W, pipe(thisWeek, autoTime))
+  parseWith(W, pipe(thisWeek, autoTime))
   parseWith(NW, pipe(nextWeek, autoTime))
   parseWith(LW, pipe(lastWeek, autoTime))
   parseWith(WT, thisWeek)
