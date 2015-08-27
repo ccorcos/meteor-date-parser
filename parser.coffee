@@ -114,9 +114,9 @@ autoYear = (d) ->
   return date
 
 # match [tm] and [today]
-isBasicPattern = pipe(R.match(/^\[.*\]$/i), R.complement(R.isNil))
+isBasicPattern = (string) -> R.match(/^\[.*\]$/i)(string).length > 0
 matchBasicPattern = (pattern, string) ->
-  match = R.match(new RegExp("^#{escapeRegex(pattern[1...pattern.length-1])}$"))
+  match = (string) -> R.match(new RegExp("^#{escapeRegex(pattern[1...pattern.length-1])}$"))(string).length > 0
   if isBasicPattern(pattern)
     if match(string)
       return true
